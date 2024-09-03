@@ -18,7 +18,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 12. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
 13. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
 14. Expand **Advanced details** and under **IAM instance profile** choose **S3DynamoDBFullAccessRole**.
-15 .In the **User data box**, paste the following code:
+15. In the **User data box**, paste the following code:
 ```bash
 #!/bin/bash -ex
 wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
@@ -32,3 +32,17 @@ export AWS_DEFAULT_REGION=<INSERT REGION HERE>
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
 ```
+16. In the pasted code, change the following line to match your Region (your Region is listed at the top right, next to your user name):
+```bash
+export AWS_DEFAULT_REGION=<INSERT REGION HERE>
+```
+Example:
+The following example uses the US West (Oregon) Region, or us-west-2.
+```bash
+export AWS_DEFAULT_REGION=us-west-2
+```
+17. Choose **Launch instance**.
+18. Choose **View all instances**.
+The instance should now be listed under **Instances**.
+19. Wait for the **Instance state** to change to Running and the **Status check** to change to 2/2 checks passed.
+**Note**: Often, the status checks update, but the console user interface (UI) might not update to reflect the most recent information. You can minimize waiting by refreshing the page after a few minutes.
