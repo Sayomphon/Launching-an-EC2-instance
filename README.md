@@ -121,13 +121,25 @@ resource "aws_instance" "employee_directory_app" {
 }
 ```
   - **resource "aws_instance"**: This resource launches a new EC2 instance.
-    - **ami**: Specifies the Amazon Machine Image (AMI) ID. Replace ami-0abcdef1234567890 with the latest Amazon Linux 2023 AMI ID from your region.
-    - **instance_type**: Defines the instance type as t2.micro, which qualifies for the free tier.
+    - **ami**: Specifies the Amazon Machine Image (AMI) ID. Replace ***ami-0abcdef1234567890*** with the latest Amazon Linux 2023 AMI ID from your region.
+    - **instance_type**: Defines the instance type as ***t2.micro***, which qualifies for the free tier.
     - **key_name**: References the previously created key pair for SSH access.
-    - **subnet_id**: Replace <subnet_id> with the actual subnet ID where the instance will be launched.
+    - **subnet_id**: Replace ***<subnet_id>*** with the actual subnet ID where the instance will be launched.
     - **vpc_security_group_ids**: Associates the EC2 instance with the security group created earlier.
     - **user_data**: Contains a script that runs automatically when the instance is launched. This script:
       - Downloads a zip file containing the application.
       - Installs necessary packages and dependencies.
       - Sets environment variables.
       - Starts the Flask application.
+### 5. Output Block
+```hcl
+output "instance_id" {
+  value = aws_instance.employee_directory_app.id
+}
+```
+  - **output "instance_id"**: This block outputs the instance ID of the created EC2 instance.
+  - **value**: References the ID of the instance we launched, making it easy to access once the resources are created.
+### Additional Information
+  - **Execution**: After configuring the HCL code, run **terraform init** to initialize the working directory containing Terraform configuration files. After that, **terraform apply** will create the specified resources in AWS.
+  - **Dependencies**: Ensure that you have the appropriate AWS credentials set up in your environment, as Terraform uses these credentials to provision resources.
+  - **Clean Up**: To delete the resources created, you can simply run **terraform destroy**, which will clean up all resources defined in your Terraform scripts.
