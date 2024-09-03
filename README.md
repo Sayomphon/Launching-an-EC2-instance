@@ -19,7 +19,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 13. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
 14. Expand **Advanced details** and under **IAM instance profile** choose **S3DynamoDBFullAccessRole**.
 15 .In the **User data box**, paste the following code:
-
+(```bash
 #!/bin/bash -ex
 wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
 unzip FlaskApp.zip
@@ -31,3 +31,5 @@ export PHOTOS_BUCKET=${SUB_PHOTOS_BUCKET}
 export AWS_DEFAULT_REGION=<INSERT REGION HERE>
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
+```
+)
