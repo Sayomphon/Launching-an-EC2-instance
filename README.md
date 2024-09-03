@@ -47,3 +47,12 @@ The instance should now be listed under **Instances**.
 19. Wait for the **Instance state** to change to Running and the **Status check** to change to 2/2 checks passed.
 
 **Note**: Often, the status checks update, but the console user interface (UI) might not update to reflect the most recent information. You can minimize waiting by refreshing the page after a few minutes.
+## Setting up by Terraform
+### 1. Provider Block
+```hcl
+provider "aws" {
+  region = "ap-southeast-1" # Change this to your desired region
+}
+```
+provider "aws": This block specifies that we are using AWS as our cloud provider.
+region: Specifies the AWS region where your resources will be created. Change this to your desired region, such as "us-east-1" if that is where you want your EC2 instance to reside.
