@@ -12,8 +12,8 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 8. Under **Key pair (login)**, choose **Create a new key pair**.
 9. For **Key pair name**, paste ***app-key-pair***. Choose **Create key pair**. The required **.pem** file should automatically download for you.
 10. Under **Network settings** and **Edit**: Keep the default VPC selection, which should have (default) after the network name
-  - **Subnet**: Choose the first subnet in the dropdown list
-  - **Auto-assign Public IP**: Enable
+    - **Subnet**: Choose the first subnet in the dropdown list
+    - **Auto-assign Public IP**: Enable
 11. Under **Firewall (security groups)** choose **Create security group** use ***app-sg*** for the **Security group name** and **Description**.
 12. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
 13. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
