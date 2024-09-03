@@ -45,4 +45,5 @@ export AWS_DEFAULT_REGION=us-west-2
 18. Choose **View all instances**.
 The instance should now be listed under **Instances**.
 19. Wait for the **Instance state** to change to Running and the **Status check** to change to 2/2 checks passed.
+
 **Note**: Often, the status checks update, but the console user interface (UI) might not update to reflect the most recent information. You can minimize waiting by refreshing the page after a few minutes.
