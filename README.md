@@ -1,4 +1,4 @@
-# Launching-an-EC2-instance
+# Launching an EC2 instance
 In this exercise, you log in to the console as the IAM Admin user. You then launch an EC2 instance by using the IAM role that you created previously. Finally, after you create the employee directory application, you stop and then terminate the instance. Because this instance launch is a dry run, you terminate the instance to prevent additional costs from incurring.
 ## Setting up by AWS Management Console 
 In this task, you will launch an EC2 instance that hosts the employee directory application.
@@ -19,7 +19,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 13. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
 14. Expand **Advanced details** and under **IAM instance profile** choose **S3DynamoDBFullAccessRole**.
 15 .In the **User data box**, paste the following code:
-(```bash
+```bash
 #!/bin/bash -ex
 wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
 unzip FlaskApp.zip
@@ -32,4 +32,3 @@ export AWS_DEFAULT_REGION=<INSERT REGION HERE>
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
 ```
-)
